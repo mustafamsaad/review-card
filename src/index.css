@@ -1,0 +1,242 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* colors */
+  --dark: 238 49% 19%;
+  --muted: 239 17% 53%;
+  --accent: 36 83% 63%;
+  --accent--muted: 43 100% 71%;
+  --neutral1: 0 0% 93%;
+  --neutral2: 0 0% 79%;
+  --neutral3: 0 0% 100%;
+  --neutral4: 0 0% 97%;
+  --neutral5: 0 0% 90%;
+
+  /* fonts */
+  --font-heading: "Merriweather", serif;
+  --font-body: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: hsl(var(--neutral5));
+  color: hsl(var(--dark));
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 80px;
+}
+
+.card {
+  display: grid;
+  padding: 84px;
+  gap: 56px;
+  max-width: 703px;
+  min-height: 100%;
+
+  background: hsl(var(--neutral4));
+  box-shadow: 0px 12px 92px hsl(var(--dark / 0.1));
+  border-radius: 23px;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: -67px;
+  top: -64px;
+  background: hsl(var(--neutral3));
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 23px;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+header h2 {
+  flex: 1 1 0%;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 43px;
+  max-width: 13ch;
+}
+
+.summary {
+  max-width: 16ch;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding: 17px;
+  gap: 8px;
+
+  background: hsl(var(--neutral3));
+  border: 3px solid hsl(var(--neutral3));
+  box-shadow: 0px 7px 20px hsl(var(--dark / 0.08));
+  border-radius: 15px;
+}
+
+.summary div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary div span {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 39px;
+}
+
+.summary p {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 10px;
+
+  background: hsl(var(--neutral3));
+  border-radius: 26px;
+}
+
+.search button {
+  order: -1;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+    box-shadow 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.search button:hover {
+  transform: scale(1.1);
+}
+
+.search button:focus {
+  outline: transparent;
+}
+
+.search button:focus {
+  box-shadow: 0 0 0 2px hsl(var(--neutral5)), 0 0 0 5px hsl(var(--muted));
+}
+
+.search input {
+  width: 100%;
+  font: inherit;
+  border: none;
+  color: hsl(var(--accent-muted));
+  font-weight: 600;
+  padding: 5px 5px 3px;
+  border-bottom: 2px solid hsl(var(--neutral3));
+  transition: border-bottom 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.search input:focus {
+  outline: transparent;
+  border-bottom: 2px solid hsl(var(--dark));
+}
+
+.reviews {
+  display: grid;
+  gap: 16px;
+}
+
+.reviews-container {
+  display: grid;
+  gap: 18px;
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 100%;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.rating strong {
+  padding-top: 3px;
+  margin-bottom: -3px;
+  min-width: 12px;
+}
+
+progress {
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 13px;
+  position: relative;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: hsl(var(--neutral1));
+  border: 1px solid hsl(var(--neutral2));
+  border-radius: 13px;
+}
+progress[value]::-moz-progress-bar {
+  background-color: hsl(var(--neutral1));
+  border: 1px solid hsl(var(--neutral2));
+  border-radius: 13px;
+}
+
+progress[value]::-webkit-progress-value {
+  position: absolute;
+  background-color: hsl(var(--accent--muted));
+  border: 1px solid hsl(var(--accent));
+  border-radius: 13px;
+  inset: 0;
+}
+progress[value]::-moz-progress-value {
+  position: absolute;
+  background-color: hsl(var(--accent--muted));
+  border: 1px solid hsl(var(--accent));
+  border-radius: 13px;
+  inset: 0;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 16px 24px;
+  max-width: fit-content;
+  gap: 10px;
+  font: inherit;
+
+  background: hsl(var(--dark));
+  color: hsl(var(--neutral3));
+  border-radius: 34px;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn:focus {
+  outline: transparent;
+}
+
+.btn:where(:hover, :focus-visible) {
+  box-shadow: 0 0 0 2px hsl(var(--neutral2)), 0 0 0 4px hsl(var(--dark));
+  filter: brightness(115%);
+}
